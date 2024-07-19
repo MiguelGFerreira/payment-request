@@ -9,41 +9,42 @@ import PaymentSection from './PaymentSection';
 const Tabs: React.FC = () => {
   const [activeTab, setActiveTab] = useState('invoice');
 
-  const renderTabContent = () => {
-    switch (activeTab) {
-      case 'invoice':
-        return <InvoiceSection />;
-      case 'supplier':
-        return <SupplierSection />;
-      case 'accounting':
-        return <AccountingSection />;
-      case 'payment':
-        return <PaymentSection />;
-      default:
-        return null;
-    }
-  };
-
   return (
-    <div>
-      <div className="flex border-b mb-4">
-        <button className={`tab ${activeTab === 'invoice' ? 'tab-active' : ''}`} onClick={() => setActiveTab('invoice')}>
-          Nota Fiscal
+    <div className="w-full">
+      <div className="tabs">
+        <button
+          className={`tab ${activeTab === 'invoice' ? 'tab-active' : ''}`}
+          onClick={() => setActiveTab('invoice')}
+        >
+          Seção Nota Fiscal
         </button>
-        <button className={`tab ${activeTab === 'supplier' ? 'tab-active' : ''}`} onClick={() => setActiveTab('supplier')}>
-          Fornecedor
+        <button
+          className={`tab ${activeTab === 'supplier' ? 'tab-active' : ''}`}
+          onClick={() => setActiveTab('supplier')}
+        >
+          Seção Fornecedor
         </button>
-        <button className={`tab ${activeTab === 'accounting' ? 'tab-active' : ''}`} onClick={() => setActiveTab('accounting')}>
-          Contábeis
+        <button
+          className={`tab ${activeTab === 'accounting' ? 'tab-active' : ''}`}
+          onClick={() => setActiveTab('accounting')}
+        >
+          Seção Contábeis
         </button>
-        <button className={`tab ${activeTab === 'payment' ? 'tab-active' : ''}`} onClick={() => setActiveTab('payment')}>
-          Pagamento
+        <button
+          className={`tab ${activeTab === 'payment' ? 'tab-active' : ''}`}
+          onClick={() => setActiveTab('payment')}
+        >
+          Seção Pagamento
         </button>
       </div>
-      <div>{renderTabContent()}</div>
+      <div className="tab-content">
+        {activeTab === 'invoice' && <InvoiceSection />}
+        {activeTab === 'supplier' && <SupplierSection />}
+        {activeTab === 'accounting' && <AccountingSection />}
+        {activeTab === 'payment' && <PaymentSection />}
+      </div>
     </div>
   );
 };
 
 export default Tabs;
-

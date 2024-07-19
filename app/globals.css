@@ -6,15 +6,20 @@
 body {
   @apply bg-gray-50 text-gray-900;
   font-family: 'Inter', sans-serif;
+  line-height: 1.6;
 }
 
-h1, h2 {
-  @apply font-bold;
+h1 {
+  @apply text-3xl font-bold text-center mb-8;
+}
+
+h2 {
+  @apply text-2xl font-bold mb-4;
 }
 
 /* Input styles */
 .input {
-  @apply w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-companyGreen;
+  @apply p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-700 focus:border-transparent;
 }
 
 /* Button styles */
@@ -23,17 +28,26 @@ button {
 }
 
 /* Tab styles */
+.tabs {
+  @apply flex justify-around mb-4 border-b-2 border-gray-300;
+}
+
 .tab {
-  @apply py-2 px-4 cursor-pointer transition-colors duration-300;
+  @apply py-2 px-4 cursor-pointer hover:text-green-700 transition-colors duration-300;
 }
 
 .tab-active {
-  @apply border-b-2 bg-companyGreen border-coffee font-semibold;
+  @apply text-amber-200 border-b-4 border-amber-200;
+}
+
+/* Estilos do conteúdo das abas */
+.tab-content {
+  @apply p-4 bg-white rounded-lg shadow-md;
 }
 
 /* Card styles */
 .card {
-  @apply p-4 bg-white shadow rounded-lg mb-4;
+  @apply p-4 bg-white rounded-lg shadow-md mb-4;
 }
 
 /* Container styles */
@@ -57,7 +71,7 @@ button {
 
 /* Form section header styles */
 .form-section-header {
-  @apply text-xl mb-4 text-companyGreen;
+  @apply text-xl font-semibold mb-4 text-green-700;
 }
 
 /* Responsive styles */
@@ -96,18 +110,4 @@ button {
   .text-coffee {
     color: #6f4e37;
   }
-}
-
-/* Additional typography */
-body {
-  font-family: 'Inter', sans-serif;
-  line-height: 1.6;
-}
-
-h1 {
-  @apply text-3xl font-bold text-center mb-8;
-}
-
-h2 {
-  @apply text-2xl font-bold mb-4;
 }
